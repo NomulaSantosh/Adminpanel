@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,6 +18,10 @@ const Login = () => {
     } else {
       setError('Invalid email or password');
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -43,16 +49,30 @@ const Login = () => {
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-6 relative">
           <label className="block text-purple-600 mb-2 text-sm">Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2.5 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 text-sm"
-            required
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2.5 border border-purple-300 rounded-xl focus:ring-2 focus:ring-purple-400 text-sm pr-10"
+              required
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+              style={{ top: '35px' }}
+            >
+              {showPassword ? (
+                <FiEyeOff className="h-5 w-5 text-purple-400" />
+              ) : (
+                <FiEye className="h-5 w-5 text-purple-400" />
+              )}
+            </button>
+          </div>
         </div>
 
         <button
