@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+    html {
+      @apply scroll-smooth;
+    }
+    body {
+      @apply antialiased text-purple-900;
+    }
+    input, button, textarea {
+      @apply focus:outline-none transition-all;
+    }
+  }
+  
+  /* Custom components */
+  @layer components {
+    .responsive-container {
+      @apply container mx-auto px-4 md:px-6 lg:px-8;
+    }
+  }
