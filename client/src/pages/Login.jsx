@@ -49,7 +49,7 @@ const Login = () => {
           />
         </div>
 
-        <div className="mb-6 relative">
+        <div className="mb-6">
           <label className="block text-purple-600 mb-2 text-sm">Password</label>
           <div className="relative">
             <input
@@ -63,13 +63,12 @@ const Login = () => {
             <button
               type="button"
               onClick={togglePasswordVisibility}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
-              style={{ top: '35px' }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-purple-400 hover:text-purple-500 transition-colors"
             >
               {showPassword ? (
-                <FiEyeOff className="h-5 w-5 text-purple-400" />
+                <FiEyeOff className="h-5 w-5" />
               ) : (
-                <FiEye className="h-5 w-5 text-purple-400" />
+                <FiEye className="h-5 w-5" />
               )}
             </button>
           </div>
