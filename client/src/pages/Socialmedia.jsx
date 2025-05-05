@@ -3,7 +3,7 @@ import Sidebar from '../components/Sidebar';
 
 const Socialmedia = () => { 
   const [socialLinks, setSocialLinks] = useState({
-    twitter: '',
+    x:'',
     facebook: '',
     instagram: '',
     linkedin: ''

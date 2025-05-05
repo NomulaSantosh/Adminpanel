@@ -36,21 +36,21 @@ const Sidebar = () => {
         </div>
 
         <div className="flex-1 flex flex-col gap-2">
-          <Link to="#" className="hover:scale-105 transition-transform">
+          <Link to="/user-list" className="hover:scale-105 transition-transform">
             <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
-              🧑‍💼 User List
+              User List
+            </button>
+          </Link>
+
+          <Link to="/withdraw" className="hover:scale-105 transition-transform">
+            <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
+             Withdraw
             </button>
           </Link>
 
           <Link to="#" className="hover:scale-105 transition-transform">
             <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
-              💸 Withdraw
-            </button>
-          </Link>
-
-          <Link to="#" className="hover:scale-105 transition-transform">
-            <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
-              ➕ Add Money
+              Add Money
             </button>
           </Link>
 
@@ -59,7 +59,7 @@ const Sidebar = () => {
               onClick={() => setSettingsOpen(!settingsOpen)}
               className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left flex justify-between items-center"
             >
-              ⚙️ Settings
+              Settings
               {settingsOpen ? <FiChevronUp /> : <FiChevronDown />}
             </button>
             
@@ -86,7 +86,7 @@ const Sidebar = () => {
             onClick={handleLogout}
             className="w-full px-3 py-2.5 bg-red-100 rounded-lg text-red-700 text-sm font-semibold hover:bg-red-200 text-left"
           >
-            🚪 Log Out
+            Log Out
           </button>
         </div>
       </div>
