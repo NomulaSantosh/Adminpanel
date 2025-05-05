@@ -75,4 +75,4 @@ const ChangePassword = () => {
   );
 };
 
-export default ChangePassword;
+export default Password;
