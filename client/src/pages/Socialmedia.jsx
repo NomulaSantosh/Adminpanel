@@ -1,6 +1,7 @@
+import { useState } from 'react'; 
 import Sidebar from '../components/Sidebar';
 
-const Socialmedia = () => {
+const Socialmedia = () => { 
   const [socialLinks, setSocialLinks] = useState({
     twitter: '',
     facebook: '',
@@ -52,4 +53,4 @@ const Socialmedia = () => {
   );
 };
 
-export default Socialmedia;
+export default Socialmedia; 
