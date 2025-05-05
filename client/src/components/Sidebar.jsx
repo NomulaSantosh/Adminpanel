@@ -44,11 +44,11 @@ const Sidebar = () => {
 
           <Link to="/withdraw" className="hover:scale-105 transition-transform">
             <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
-             Withdraw
+              Withdraw
             </button>
           </Link>
 
-          <Link to="#" className="hover:scale-105 transition-transform">
+          <Link to="/add-money" className="hover:scale-105 transition-transform">
             <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
               Add Money
             </button>

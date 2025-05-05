@@ -5,6 +5,7 @@ import Socialmedia from './pages/Socialmedia'
 import Password from './pages/Password'
 import UserList from './pages/UserList'
 import Withdraw from './pages/Withdraw'
+import AddMoney from './pages/AddMoney'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/change-password" element={<Password />} />
       <Route path="/user-list" element={<UserList />} />
       <Route path="/withdraw" element={<Withdraw />} />
+      <Route path="/add-money" element={<AddMoney />} />
     </Routes>
   )
 }

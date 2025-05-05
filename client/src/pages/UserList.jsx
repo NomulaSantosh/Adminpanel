@@ -1,4 +1,3 @@
-// src/pages/UserList.jsx
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
@@ -8,6 +7,9 @@ const users = [
     id: 1,
     name: 'Santosh Nomula',
     email: 'santosh@gmail.com',
+    bankName: 'State Bank of India',
+    accountNumber: 'XXXXXXX789',
+    ifsc: 'SBIN0001234',
     address: 'Andra Pradesh, India',
     dob: '1990-01-01',
     password: 'hashed_password_123'
@@ -15,7 +17,10 @@ const users = [
   { 
     id: 2,
     name: 'Karthik Vemula',
-    email: 'karthik@gamil.com',
+    email: 'karthik@gmail.com',
+    bankName: 'HDFC Bank',
+    accountNumber: 'XXXXXXX456',
+    ifsc: 'HDFC0005678',
     address: 'Telangana, India',
     dob: '1985-05-15',
     password: 'hashed_password_456'
@@ -23,7 +28,7 @@ const users = [
 ];
 
 const UserList = () => {
-  const hashPassword = (pass) => '*'.repeat(8); // Simple hash display
+  const hashPassword = (pass) => '*'.repeat(8);
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
@@ -40,6 +45,9 @@ const UserList = () => {
                 <th className="px-4 py-3 text-left text-purple-700">Sr.No</th>
                 <th className="px-4 py-3 text-left text-purple-700">Name</th>
                 <th className="px-4 py-3 text-left text-purple-700">Contact</th>
+                <th className="px-4 py-3 text-left text-purple-700">Bank Name</th>
+                <th className="px-4 py-3 text-left text-purple-700">Account Number</th>
+                <th className="px-4 py-3 text-left text-purple-700">IFSC Code</th>
                 <th className="px-4 py-3 text-left text-purple-700">Address</th>
                 <th className="px-4 py-3 text-left text-purple-700">Date of Birth</th>
                 <th className="px-4 py-3 text-left text-purple-700">Password</th>
@@ -52,6 +60,9 @@ const UserList = () => {
                   <td className="px-4 py-3">{index + 1}</td>
                   <td className="px-4 py-3">{user.name}</td>
                   <td className="px-4 py-3">{user.email}</td>
+                  <td className="px-4 py-3">{user.bankName}</td>
+                  <td className="px-4 py-3">{user.accountNumber}</td>
+                  <td className="px-4 py-3">{user.ifsc}</td>
                   <td className="px-4 py-3">{user.address}</td>
                   <td className="px-4 py-3">{user.dob}</td>
                   <td className="px-4 py-3">{hashPassword(user.password)}</td>

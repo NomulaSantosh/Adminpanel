@@ -1,7 +1,5 @@
-// src/pages/Withdraw.jsx
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 const transactions = [
   { 
@@ -50,9 +48,14 @@ const Withdraw = () => {
                   <td className="px-4 py-3">{transaction.upi}</td>
                   <td className="px-4 py-3">{transaction.amount}</td>
                   <td className="px-4 py-3">
-                    <button className="text-green-600 hover:text-green-800">
-                      <CheckCircleIcon className="h-6 w-6" />
-                    </button>
+                    <div className="flex gap-2">
+                      <button className="bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700 text-sm">
+                        Confirm
+                      </button>
+                      <button className="bg-red-600 text-white px-3 py-1.5 rounded-lg hover:bg-red-700 text-sm">
+                        Cancel
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

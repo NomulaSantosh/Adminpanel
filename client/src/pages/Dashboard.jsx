@@ -36,12 +36,12 @@ const Dashboard = () => {
           {stats.map((stat, index) => (
             <div key={index} className={`${stat.bgColor} p-6 rounded-xl shadow-md`}>
               <div className="flex flex-col space-y-4">
-                <div className={`p-3 w-fit rounded-lg ${stat.bgColor}`}>
+                <div className={`p-3 w-fit text-center rounded-lg ${stat.bgColor}`}>
                   {stat.icon}
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">{stat.title}</p>
-                  <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                  <p className="text-sm text-center text-gray-600 mb-1">{stat.title}</p>
+                  <p className="text-2xl text-center font-bold text-gray-900">{stat.value}</p>
                 </div>
               </div>
             </div>
