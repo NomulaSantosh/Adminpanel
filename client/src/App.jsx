@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Login from './pages/Login.jsx'
 import Dashboard from './pages/Dashboard.jsx'
-import SocialMedia from './pages/Socialmedia'
-import ChangePassword from './pages/Password'
+import Socialmedia from './pages/Socialmedia'
+import Password from './pages/Password'
 
 const App = () => {
   return (
