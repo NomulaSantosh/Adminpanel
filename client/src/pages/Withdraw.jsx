@@ -6,16 +6,16 @@ import { CheckCircleIcon } from '@heroicons/react/24/outline';
 const transactions = [
   { 
     id: 1,
-    name: 'John Doe',
-    email: 'john@example.com',
-    upi: 'john@upi',
+    name: 'Santosh Nomula',
+    email: 'santosh@gmail.com',
+    upi: '8465923893@upi',
     amount: '₹5,000'
   },
   { 
     id: 2,
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    upi: 'jane@upi',
+    name: 'Karthik Vemula',
+    email: 'Karthik@gmail.com',
+    upi: '9635284177@upi',
     amount: '₹3,200'
   }
 ];
