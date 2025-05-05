@@ -35,7 +35,7 @@ const Sidebar = () => {
           </Link>
         </div>
 
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex-1 flex flex-col gap-4">
           <Link to="/user-list" className="hover:scale-105 transition-transform">
             <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
               User List
