@@ -1,9 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
@@ -53,11 +54,30 @@ const Sidebar = () => {
             </button>
           </Link>
 
-          <Link to="/settings" className="hover:scale-105 transition-transform">
-            <button className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left">
+          <div className="relative">
+            <button
+              onClick={() => setSettingsOpen(!settingsOpen)}
+              className="w-full px-3 py-2.5 bg-white rounded-lg text-purple-800 text-sm font-semibold hover:bg-purple-300 text-left flex justify-between items-center"
+            >
               ⚙️ Settings
+              {settingsOpen ? <FiChevronUp /> : <FiChevronDown />}
             </button>
-          </Link>
+            
+            {settingsOpen && (
+              <div className="ml-4 mt-1 space-y-1">
+                <Link to="/social-media" className="block">
+                  <button className="w-full px-3 py-2 bg-purple-100 rounded-lg text-purple-700 text-sm hover:bg-purple-200 text-left">
+                    Social Media Links
+                  </button>
+                </Link>
+                <Link to="/change-password" className="block">
+                  <button className="w-full px-3 py-2 bg-purple-100 rounded-lg text-purple-700 text-sm hover:bg-purple-200 text-left">
+                    Change Password
+                  </button>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Logout Button */}
