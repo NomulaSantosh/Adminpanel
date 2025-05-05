@@ -1,8 +1,7 @@
-// src/pages/ChangePassword.jsx
 import Sidebar from '../components/Sidebar';
 import { useState } from 'react';
 
-const ChangePassword = () => {
+const Password = () => {
   const [passwords, setPasswords] = useState({
     current: '',
     new: '',

@@ -1,7 +1,6 @@
-// src/pages/SocialMedia.jsx
 import Sidebar from '../components/Sidebar';
 
-const SocialMedia = () => {
+const Socialmedia = () => {
   const [socialLinks, setSocialLinks] = useState({
     twitter: '',
     facebook: '',
