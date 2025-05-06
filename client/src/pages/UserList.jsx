@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, TrashIcon, CheckIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
-const users = [
+const initialUsers = [
   { 
     id: 1,
     name: 'Santosh Nomula',
@@ -28,7 +29,37 @@ const users = [
 ];
 
 const UserList = () => {
+  const [users, setUsers] = useState(initialUsers);
+  const [editingUser, setEditingUser] = useState(null);
+  const [editedData, setEditedData] = useState({});
+
   const hashPassword = (pass) => '*'.repeat(8);
+
+  const handleEdit = (user) => {
+    setEditingUser(user.id);
+    setEditedData(user);
+  };
+
+  const handleDelete = (userId) => {
+    setUsers(users.filter(user => user.id !== userId));
+  };
+
+  const handleSave = (userId) => {
+    setUsers(users.map(user => user.id === userId ? { ...user, ...editedData } : user));
+    setEditingUser(null);
+  };
+
+  const handleCancel = () => {
+    setEditingUser(null);
+    setEditedData({});
+  };
+
+  const handleChange = (e, field) => {
+    setEditedData(prev => ({
+      ...prev,
+      [field]: e.target.value
+    }));
+  };
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
@@ -58,21 +89,113 @@ const UserList = () => {
               {users.map((user, index) => (
                 <tr key={user.id} className="border-t border-purple-100">
                   <td className="px-4 py-3">{index + 1}</td>
-                  <td className="px-4 py-3">{user.name}</td>
-                  <td className="px-4 py-3">{user.email}</td>
-                  <td className="px-4 py-3">{user.bankName}</td>
-                  <td className="px-4 py-3">{user.accountNumber}</td>
-                  <td className="px-4 py-3">{user.ifsc}</td>
-                  <td className="px-4 py-3">{user.address}</td>
-                  <td className="px-4 py-3">{user.dob}</td>
+                  
+                  {/* Editable Fields */}
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        value={editedData.name || ''}
+                        onChange={(e) => handleChange(e, 'name')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.name}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        value={editedData.email || ''}
+                        onChange={(e) => handleChange(e, 'email')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.email}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        value={editedData.bankName || ''}
+                        onChange={(e) => handleChange(e, 'bankName')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.bankName}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        value={editedData.accountNumber || ''}
+                        onChange={(e) => handleChange(e, 'accountNumber')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.accountNumber}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        value={editedData.ifsc || ''}
+                        onChange={(e) => handleChange(e, 'ifsc')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.ifsc}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        value={editedData.address || ''}
+                        onChange={(e) => handleChange(e, 'address')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.address}
+                  </td>
+
+                  <td className="px-4 py-3">
+                    {editingUser === user.id ? (
+                      <input
+                        type="date"
+                        value={editedData.dob || ''}
+                        onChange={(e) => handleChange(e, 'dob')}
+                        className="w-full px-2 py-1 border rounded"
+                      />
+                    ) : user.dob}
+                  </td>
+
                   <td className="px-4 py-3">{hashPassword(user.password)}</td>
+
                   <td className="px-4 py-3 flex gap-2">
-                    <button className="text-purple-600 hover:text-purple-800">
-                      <PencilIcon className="h-5 w-5" />
-                    </button>
-                    <button className="text-red-600 hover:text-red-800">
-                      <TrashIcon className="h-5 w-5" />
-                    </button>
+                    {editingUser === user.id ? (
+                      <>
+                        <button
+                          onClick={() => handleSave(user.id)}
+                          className="text-green-600 hover:text-green-800"
+                        >
+                          <CheckIcon className="h-5 w-5" />
+                        </button>
+                        <button
+                          onClick={handleCancel}
+                          className="text-red-600 hover:text-red-800"
+                        >
+                          <XMarkIcon className="h-5 w-5" />
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => handleEdit(user)}
+                          className="text-purple-600 hover:text-purple-800"
+                        >
+                          <PencilIcon className="h-5 w-5" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(user.id)}
+                          className="text-red-600 hover:text-red-800"
+                        >
+                          <TrashIcon className="h-5 w-5" />
+                        </button>
+                      </>
+                    )}
                   </td>
                 </tr>
               ))}

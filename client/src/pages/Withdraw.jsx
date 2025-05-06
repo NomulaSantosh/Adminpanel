@@ -6,6 +6,9 @@ const transactions = [
     id: 1,
     name: 'Santosh Nomula',
     email: 'santosh@gmail.com',
+    bankName: 'State Bank of India',
+    accountNumber: 'XXXXXXX789',
+    ifscCode: 'SBIN0001234',
     upi: '8465923893@upi',
     amount: '₹5,000'
   },
@@ -13,6 +16,9 @@ const transactions = [
     id: 2,
     name: 'Karthik Vemula',
     email: 'Karthik@gmail.com',
+    bankName: 'HDFC Bank',
+    accountNumber: 'XXXXXXX456',
+    ifscCode: 'HDFC0005678',
     upi: '9635284177@upi',
     amount: '₹3,200'
   }
@@ -34,6 +40,9 @@ const Withdraw = () => {
                 <th className="px-4 py-3 text-left text-purple-700">Sr.No</th>
                 <th className="px-4 py-3 text-left text-purple-700">Name</th>
                 <th className="px-4 py-3 text-left text-purple-700">Contact</th>
+                <th className="px-4 py-3 text-left text-purple-700">Bank Name</th>
+                <th className="px-4 py-3 text-left text-purple-700">Account Number</th>
+                <th className="px-4 py-3 text-left text-purple-700">IFSC Code</th>
                 <th className="px-4 py-3 text-left text-purple-700">UPI ID</th>
                 <th className="px-4 py-3 text-left text-purple-700">Amount</th>
                 <th className="px-4 py-3 text-left text-purple-700">Actions</th>
@@ -45,6 +54,9 @@ const Withdraw = () => {
                   <td className="px-4 py-3">{index + 1}</td>
                   <td className="px-4 py-3">{transaction.name}</td>
                   <td className="px-4 py-3">{transaction.email}</td>
+                  <td className="px-4 py-3">{transaction.bankName}</td>
+                  <td className="px-4 py-3">{transaction.accountNumber}</td>
+                  <td className="px-4 py-3">{transaction.ifscCode}</td>
                   <td className="px-4 py-3">{transaction.upi}</td>
                   <td className="px-4 py-3">{transaction.amount}</td>
                   <td className="px-4 py-3">
