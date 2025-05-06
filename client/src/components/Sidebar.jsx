@@ -1,11 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { FiMenu, FiX, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Keep dropdown open when on a settings route
+  useEffect(() => {
+    const settingsRoutes = ['/social-media', '/change-password'];
+    if (settingsRoutes.includes(location.pathname)) {
+      setSettingsOpen(true);
+    }
+  }, [location.pathname]);
 
   const handleLogout = (e) => {
     e.preventDefault();
